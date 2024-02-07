@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #007bff;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 1.5rem;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.form-signin,
+.form-signup {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-signin h2,
+.form-signup h2 {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.btn-secondary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+    .footer {
+        padding: 10px 0;
+        text-align: center;
+        background-color: #f8f9fa; 
+    }
+
+    .footer p {
+        font-size: 14px; 
+        margin-bottom: 5px; 
+    }
+
+    .footer a {
+        font-size: 14px; 
+        text-decoration: none;
+        color: #007bff; 
+    }
+
+
+

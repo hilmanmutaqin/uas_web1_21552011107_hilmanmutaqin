@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SMA AL-AMANAH CIWIDEY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/loginn.css">
+
+    <style>
+        body {
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer {
+                display: none;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/Logo_alamanah.png" alt="Logo" width="50" height="50"
+                    class="d-inline-block align-text-center">
+                SMA AL-AMANAH CIWIDEY
+            </a>
+        </div>
+    </nav>
+    <!-- End NAVBAR -->
+
+    <!-- Formulir Login -->
+<div class="container mt-5">
+    <form id="loginForm" class="form-signin" action="#">
+        <h2 class="mb-4 text-center">Login</h2>
+        <div class="form-group">
+            <label for="inputEmail" class="visually-hidden">Alamat Email</label>
+            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Alamat Email" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="visually-hidden">Password</label>
+            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <button id="loginButton" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            </div>
+            <div class="col-md-6 mb-3">
+                <a href="register.html" class="btn btn-lg btn-secondary btn-block">Register</a>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- End Formulir Login -->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Mencegah perilaku bawaan formulir saat disubmit
+
+        const email = document.getElementById('inputEmail').value;
+        const password = document.getElementById('inputPassword').value;
+
+        const formData = new FormData();
+        formData.append('inputEmail', email);
+        formData.append('inputPassword', password);
+
+        // Konfigurasi axios
+        axios.post('https://web1hilmanmutaqin.000webhostapp.com/config/login.php', formData)
+            .then(response => {
+                console.log(response)
+
+                if (response.data.status == 'success') {
+                    const sessionToken = response.data.session_token;
+                    localStorage.setItem('session_token', sessionToken);
+                    window.location.href = 'https://web1hilmanmutaqin.000webhostapp.com/config/index.php';
+                } else {
+                    alert('Login Gagal. Mohon periksa kredensial Anda.');
+                }
+            })
+            .catch(error => {
+                console.error('Error saat login:', error);
+            });
+    });
+</script>
+
+    <!-- FOOTER -->
+    
+<footer class="footer mt-5 text-center-footer">
+    <!-- Konten footer -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto ">
+                <p style="color: black;">&copy; 21552011107_HILMAN MUTAQIN_TIF RP 221PB_UASWEB1</p>
+                <a href="https://sttbandung.ac.id/">SEKOLAH TINGGI TEKNOLOGI BANDUNG</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- END FOOTER -->
+
+</body>
+
+</html>
